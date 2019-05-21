@@ -28,20 +28,21 @@
           <p class="lead">Enter your latitude and longitude to display your location on a Google Map</p>
           <hr>
 
-          <form v-on:submit="initMap">
+          <form>
 
             <div class="form-row">
               <div class="col">
-                <input v-model="lat" type="text" name="lat" id="lat" placeholder="Latitude" class="form-control">
+                <input v-model="lat" type="text" name="latt" id="latt" placeholder="Latitude" class="form-control">
               </div>
               <div class="col">
-                <input v-model="lon" type="text" name="lon" id="lon" placeholder="Longitude" class="form-control">
+                <input v-model="lon" type="text" name="lonn" id="lonn" placeholder="Longitude" class="form-control">
               </div>
             </div>
 
             <div class="form-row">
               <div class="col">
-                <input type="submit" value="Show My Location" class="btn btn-primary mt-4" >
+                <!-- <input type="submit" v-on:input= "init_map(lat, lon)" value="Show My Location" class="btn btn-primary mt-4" > -->
+                <button v-on:click="init_map(lat, lon)" type="button" class="btn btn-primary" >Show My Location</button>
               </div>
             </div>
 
@@ -52,7 +53,7 @@
         <!-- <my-map lat="34.066445" lon="-118.166670"></my-map> -->
 
         <div class="row">
-          <div class="col-md-12" id="map_display"></div>
+          <div v-show="!first_run" class="col-md-12" id="map_display">asdf</div>
         </div>
 
       </div> <!-- initMap -->
@@ -60,9 +61,9 @@
       <!-- my googlemap key; plz dnt spam it -->
 
       <script type="text/javascript" src="https://unpkg.com/vue"></script>
-      <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script type="text/javascript" src="js/app.js"></script>
       <script type="text/javascript" src="js/map.js"></script>
+
       <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeMR1oDoI4bSH3BdPQi1acfAhCcth-ctE&callback=initMap">
     </script>

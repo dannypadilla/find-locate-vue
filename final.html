@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      #map_display {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <title>CS4220 Final</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div id="init">
+        <div class="jumbotron">
+
+          <h4 class="display-4">
+            My Location
+          </h4>
+
+          <p class="lead">Enter your latitude and longitude to display your location on a Google Map</p>
+          <hr>
+
+          <form v-on:submit="initMap">
+
+            <div class="form-row">
+              <div class="col">
+                <input v-model="lat" type="text" name="lat" id="lat" placeholder="Latitude" class="form-control">
+              </div>
+              <div class="col">
+                <input v-model="lon" type="text" name="lon" id="lon" placeholder="Longitude" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col">
+                <input type="submit" value="Show My Location" class="btn btn-primary mt-4" >
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- <my-map lat="34.066445" lon="-118.166670"></my-map> -->
+
+        <div class="row">
+          <div class="col-md-12" id="map_display"></div>
+        </div>
+
+      </div> <!-- initMap -->
+
+      <!-- my googlemap key; plz dnt spam it -->
+
+      <script type="text/javascript" src="https://unpkg.com/vue"></script>
+      <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script type="text/javascript" src="js/app.js"></script>
+      <script type="text/javascript" src="js/map.js"></script>
+      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeMR1oDoI4bSH3BdPQi1acfAhCcth-ctE&callback=initMap">
+    </script>
+
+    </div>
+  </body>
+
+</html>
